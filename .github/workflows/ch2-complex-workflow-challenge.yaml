@@ -1,0 +1,55 @@
+name: ch2-complex-workflow-challenge
+
+on: push
+# Example 1: 1 Event with a Conditional
+# push:
+#   branches:
+#     - develop
+#     - master
+
+# Example 2: Multi Events Conditionals
+# push:
+#   branches:
+#     - develop
+#     - master
+# pull_request:
+#   branches:
+#     - master
+
+# Other Conditionals:
+# Ignore branches -> branches-ignore
+# Use tags  ->       tags tags-ignore
+# Special characters  -> 'feature/new-feature'
+#                        'release/*'
+#                        'm?ster'
+
+jobs:
+  job1:
+    name: Job1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step one
+      run: date
+  job2:
+    name: Job2
+    runs-on: windows-latest
+    steps:
+    - name: Step one
+      run: "Get-Date"
+  job3:
+    name: Job3
+    runs-on: macos-latest
+    steps:
+    - name: Step one
+      run: date
+  job4:
+    name: Job4
+    needs: [job1, job2, job3]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step one
+      run: date
+  # job3:
+  #   name: Third job
+  #   needs: [job1, job2]
+
