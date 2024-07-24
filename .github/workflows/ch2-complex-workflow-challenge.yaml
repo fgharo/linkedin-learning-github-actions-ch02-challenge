@@ -35,7 +35,7 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Step one
-      run: "Get-Date"
+      run: date
   macos:
     name: macos
     runs-on: macos-latest
