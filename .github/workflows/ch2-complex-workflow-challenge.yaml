@@ -24,27 +24,27 @@ on: push
 #                        'm?ster'
 
 jobs:
-  job1:
-    name: Job1
+  ubuntu:
+    name: ubuntu
     runs-on: ubuntu-latest
     steps:
     - name: Step one
       run: date
-  job2:
-    name: Job2
+  windows:
+    name: windows
     runs-on: windows-latest
     steps:
     - name: Step one
       run: "Get-Date"
-  job3:
-    name: Job3
+  macos:
+    name: macos
     runs-on: macos-latest
     steps:
     - name: Step one
       run: date
-  job4:
-    name: Job4
-    needs: [job1, job2, job3]
+  depends:
+    name: depends
+    needs: [ubuntu, windows, macos]
     runs-on: ubuntu-latest
     steps:
     - name: Step one
